@@ -11,6 +11,7 @@ mediatek_setup_interfaces()
 	abt,asr3000|\
 	cmcc,rax3000m*|\
 	cmcc,xr30-nand|\
+	cmcc,xr30-emmc|\
 	h3c,magic-nx30-pro|\
 	imou,lc-hx3001|\
 	konka,komi-a31|\
@@ -35,10 +36,12 @@ mediatek_setup_interfaces()
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 sfp2" "eth1 wan"
 		;;
 	bananapi,bpi-r3-mini|\
-	huasifei,wh3000-emmc)
+	huasifei,wh3000-emmc|\
+	huasifei,wh3000-pro)
 		ucidef_set_interfaces_lan_wan eth0 eth1
 		;;
 	bananapi,bpi-r4|\
+	bananapi,bpi-r4-2g5|\
 	bananapi,bpi-r4-poe)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 eth1" "wan eth2"
 		;;
@@ -60,6 +63,9 @@ mediatek_setup_interfaces()
 		;;
 	hf,m7986r1*)
 		ucidef_set_interfaces_lan_wan "lan2 lan3 lan4" "lan1 usb0"
+		;;
+	huasifei,ws3006)
+		ucidef_set_interfaces_lan_wan "lan1 lan2 eth1" "wan"
 		;;
 	mediatek,mt7986a-rfb|\
 	mediatek,mt7986b-rfb)
@@ -101,17 +107,6 @@ mediatek_setup_macs()
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4)
 		wan_mac=$(macaddr_add $(cat /sys/class/net/eth0/address) 1)
-		;;
-	cmcc,xr30-nand|\
-	cmcc,rax3000m-emmc)
-		wan_mac=$(mmc_get_mac_binary factory 0x2a)
-		lan_mac=$(mmc_get_mac_binary factory 0x24)
-		label_mac=$wan_mac
-		;;
-	cmcc,rax3000m-nand)
-		wan_mac=$(mtd_get_mac_binary factory 0x2a)
-		lan_mac=$(mtd_get_mac_binary factory 0x24)
-		label_mac=$lan_mac
 		;;
 	glinet,gl-mt2500)
 		label_mac="$(get_mac_binary "/dev/mmcblk0boot1" 0xa)"

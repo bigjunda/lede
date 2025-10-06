@@ -21,6 +21,16 @@ ArmSoM-Sige 系列：软路由、单板计算机、小型服务器与智能家�
 
 [![sige1-zh](doc/sige-zh.jpg)](https://item.taobao.com/item.htm?id=721197662185)
 
+## 新一代 OpenWrt WIFI7 硬路由 CW Q3600 系列介绍
+
+畅网Wi-Fi7 ，如7而至（2.5G网口），双系统自由切换
+
+[商品介绍页面 - 畅网 品牌店](https://www.changwang.cn/products.html?typeid=149)
+
+购买链接：
+
+[![cw-zh](doc/cw-zh.jpg)](https://www.changwang.cn/product.html?id=29)
+
 ## 注意
 
 1. **不要用 root 用户进行编译**
@@ -29,7 +39,7 @@ ArmSoM-Sige 系列：软路由、单板计算机、小型服务器与智能家�
 
 ## 编译命令
 
-1. 首先装好 Linux 系统，推荐 Debian 或 Ubuntu LTS
+1. 首先装好 Linux 系统，推荐 Debian 或 Ubuntu LTS 22/24
 
 2. 安装编译依赖
 
@@ -40,7 +50,7 @@ ArmSoM-Sige 系列：软路由、单板计算机、小型服务器与智能家�
    bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gcc-multilib g++-multilib gettext \
    genisoimage git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev \
    libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libpython3-dev \
-   libreadline-dev libssl-dev libtool llvm lrzsz msmtp ninja-build p7zip p7zip-full patch pkgconf \
+   libreadline-dev libssl-dev libtool llvm lrzsz libnsl-dev ninja-build p7zip p7zip-full patch pkgconf \
    python3 python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion \
    swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
    ```
